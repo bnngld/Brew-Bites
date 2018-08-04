@@ -4,7 +4,7 @@ function getData(userInput, callback) {
     const settings = {
       url: punkURL,
       data: {
-        q: `${userInput} in: title`,
+        food: `${userInput}`,
         per_page: 5
       },
       dataType: 'JSON',
@@ -16,19 +16,21 @@ function getData(userInput, callback) {
   }
 
   function displayResults(item) {
+   const seachTerm = $('input').val(); 
+   const matches = item.food_pairing.filter(s => s.includes(seachTerm));
+    console.log(matches);
     return `
     <span class="js-thumbnail">
       <h3>${item.name}</h3>
-      <ul>Food Pairing:
-        <li>${item.food_pairing}</li>
-    </ul>
+      <h3>Food Pairing</h3>
+        <button>${matches}</button>
     </span>
   `;
 }
 
 function displayPunkData(data) {
   const result = data.map((id, i) => displayResults(id));
-  $('.js-search-results').append(result);
+  $('.js-search-results').html(result);
 }
 
 function userSubmit() {
