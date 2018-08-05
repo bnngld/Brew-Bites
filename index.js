@@ -34,28 +34,27 @@ function getPunkData(userInput, callback) {
     $.ajax(settings);
   }
 
-  function displayResults(item) {
+  function displayPunkResults(item) {
    const searchTerm = $('input').val(); 
-   const matches = item.food_pairing.filter(s => s.toLowerCase().includes(`${searchTerm}`));
-   console.log(matches);
+   const matches = [];
+   matches.push(item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`)));
+   for (i = 0; i < matches.length; i++) {
+   console.log(matches[i]);
     return `
-    <span class="js-beer-list">
+    <section class="js-beer-list">
       <h3>${item.name}</h3>
       <h4>Food Pairing</h4>
-        <button class="js-button">${matches}</button>
-    </span>
-  `;
+        <ul>
+        <li><button class="js-button">${matches[i]}</button></li>
+        </ul>
+    </section>
+  `;}
 }
 
 function displayPunkData(data) {
-  const result = data.map((id, i) => displayResults(id));
+  const result = data.map((id, i) => displayPunkResults(id));
   $('.js-search-results').html(result);
 }
-
-/*function displayFoodData(data) {
-    const result = data.map((id, i) => displayResults(id));
-    $('.js-search-results').html(result);
-  }*/
 
 function onButtonClick(){
     $('.js-search-results').on('click', '.js-button', event => {
