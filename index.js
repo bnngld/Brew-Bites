@@ -35,31 +35,31 @@ function getPunkData(userInput, callback) {
   }
 
   function displayPunkResults(item) {
-   const searchTerm = $('input').val(); 
-   const matches = [];
-   matches.push(item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`)));
-   for (i = 0; i < matches.length; i++) {
-   console.log(matches[i]);
-    return `
-    <section class="js-beer-list">
-      <h3>${item.name}</h3>
-      <h4>Food Pairing</h4>
-        <ul>
-        <li><button class="js-button">${matches[i]}</button></li>
-        </ul>
-    </section>
-  `;}
-}
+    const searchTerm = $('input').val(); 
+    const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
+     return `
+     <section class="js-beer-list">
+       <h3>${item.name}</h3>
+       <h4>Food Pairing</h4>
+         <ul>
+         ${matches
+          .map(match => `<li><button class="js-button">${match}</button></li>`)
+          .join("")}
+         </ul>
+     </section>
+   `;}
+ 
 
 function displayPunkData(data) {
-  const result = data.map((id, i) => displayPunkResults(id));
+  const result = data.map((beer, i) => displayPunkResults(beer));
   $('.js-search-results').html(result);
 }
 
 function onButtonClick(){
     $('.js-search-results').on('click', '.js-button', event => {
         event.preventDefault();
-        const buttonVal = $('.js-button').text();
+        const buttonVal = $('.js-button').html();
+        console.log($(this).attr('id'));
         getFoodData(buttonVal);
     });
 }
