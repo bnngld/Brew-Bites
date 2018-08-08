@@ -11,7 +11,6 @@ function getPunkData(userInput, callback) {
       type: 'GET',
       success: callback
     };
-  console.log('success', callback);
     $.ajax(settings);
   }
 
@@ -30,7 +29,6 @@ function getPunkData(userInput, callback) {
       type: 'GET',
       success: callback
     };
-  console.log('success', callback);
     $.ajax(settings);
   }
 
@@ -38,15 +36,12 @@ function getPunkData(userInput, callback) {
     const searchTerm = $('input').val(); 
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
-     <section class="js-beer-list">
-       <h3>${item.name}</h3>
-       <h4>Food Pairing</h4>
-         <ul>
-         ${matches
-          .map(match => `<li><button class="js-button">${match}</button></li>`)
-          .join("")}
-         </ul>
-     </section>
+     <button class="js-accordion">${item.name}</button>
+      <article class="js-panel" aria-live="assertive">
+        <h4>Food Pairing</h4>
+        ${matches.map(match => `<button class="js-button">${match}</button>`)}
+      </article>
+     
    `;}
  
 
@@ -57,14 +52,11 @@ function displayPunkData(data) {
 
 function onButtonClick(){
     $('.js-search-results').on('click', '.js-button', event => {
-        event.preventDefault();
         const buttonVal = $('.js-button').html();
-        console.log($(this).attr('id'));
         getFoodData(buttonVal);
     });
 }
 
-$(onButtonClick);
 
 function userSubmit() {
   $('.js-search-form').on('submit', event => {
@@ -75,4 +67,17 @@ function userSubmit() {
   });
 }
 
-$(userSubmit);
+function panelButton(){
+  $('.js-search-results').on('click', '.js-accordion', event => {
+    event.preventDefault();
+    $(this).find('.js-panel').slideToggle('slow');
+  });
+}
+
+function renderPage(){
+  userSubmit();
+  onButtonClick();
+  panelButton();
+}
+
+$(renderPage);
