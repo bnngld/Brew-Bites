@@ -37,11 +37,10 @@ function getPunkData(userInput, callback) {
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
      <button class="js-accordion">${item.name}</button>
-      <article class="js-panel" aria-live="assertive">
+      <article class="js-panel" aria-live="assertive" hidden>
         <h4>Food Pairing</h4>
-        ${matches.map(match => `<button class="js-button">${match}</button>`)}
+        ${matches.map(match => `<button class="js-button">${match}</button>`).join("")}
       </article>
-     
    `;}
  
 
@@ -68,9 +67,9 @@ function userSubmit() {
 }
 
 function panelButton(){
-  $('.js-search-results').on('click', '.js-accordion', event => {
-    event.preventDefault();
-    $(this).find('.js-panel').slideToggle('slow');
+  $('.js-search-results').on('click', '.js-accordion', function(){
+    $(this).next().slideToggle('fast');
+    $('.js-panel').not($(this).next()).slideUp('fast');
   });
 }
 

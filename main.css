@@ -14,21 +14,13 @@
   transition: 0.4s;
 }
 
-.js-accordion:active,
 .js-accordion:hover {
   background-color: #ccc;
 }
 
 .js-panel {
   background-color: white;
-  max-height: 0;
   padding-left: 15px;
   overflow: hidden;
   transition: 0.6s ease-in-out;
-  opacity: 0;
-}
-
-.js-panel.show {
-  opacity: 1;
-  max-height: 500px;
 }
