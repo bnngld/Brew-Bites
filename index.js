@@ -30,7 +30,7 @@ function getPunkData(userInput, callback) {
         q: buttonVal,
         app_id: 'c03f1683',
         app_key: '7bdba1c44d81525c792ad78924b3a87a',
-        per_page: 1
+        from: 0
       },
       dataType: 'JSON',
       type: 'GET',
@@ -47,7 +47,10 @@ function displayPunkResults(item) {
     const searchTerm = $('input').val().trim(); 
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
-     <h4 class="js-accordion">${item.name}</h4>
+     <section class="js-accordion">
+      <h4>${item.name}</h4>
+      <p>${item.tagline}</p>
+     </section>
       <article class="js-panel" aria-live="assertive" hidden>
         <p>${item.description}</p>
         <p>Food Pairing:</p>
@@ -66,15 +69,39 @@ function displayPunkData(data) {
   }
 }
 
-function onButtonClick(){
+function displayFoodData(data) {
+  const food = $(this).val();
+  const result = food.map((recipe, i) => displayFoodResults(recipe));
+  if (data.length === 0){
+    $('.js-lightbox').html(`<div class="js-recipe-error" aria-live="assertive">You are seeing this because no recipes could be found</div>`);
+  } else {
+  $('.js-lightbox').html(result);
+  }
+}
+
+function displayFoodResults(item) {
+//this function will display food items
+
+}
+
+function foodButton(){
     $('.js-search-results').on('click', '.js-button', function() {
+      $('.js-lightbox').fadeIn().show();
+      $('.js-lightbox-content').show();
         const buttonVal = $(this).html();
-        getFoodData(buttonVal);
+        getFoodData(buttonVal, displayFoodData);
     });
 }
 
+function closeLightbox(){
+  $('.js-lightbox-close').on('click', function() {
+    $('.js-lightbox').prop('hidden', true);
+    $('.js-lightbox-content').hide();
+  });
+}
 
-function userSubmit() {
+
+function userSearch() {
   $('.js-search-form').on('submit', event => {
     event.preventDefault();
     const userInput = $('.js-query').val().trim(); 
@@ -83,7 +110,7 @@ function userSubmit() {
   });
 }
 
-function panelButton(){
+function accordionButton(){
   $('.js-search-results').on('click', '.js-accordion', function(){
     $(this).next().toggle();
     $('.js-panel').not($(this).next()).hide();
@@ -91,9 +118,9 @@ function panelButton(){
 }
 
 function renderPage(){
-  userSubmit();
-  onButtonClick();
-  panelButton();
+  userSearch();
+  foodButton();
+  accordionButton();
 }
 
 $(renderPage);
