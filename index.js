@@ -1,6 +1,6 @@
 const punkURL = "https://api.punkapi.com/v2/beers";
 
-function getPunkData(userInput, callback, displayBeerError) {
+function getPunkData(userInput, callback) {
     const settings = {
       url: punkURL,
       data: {
@@ -10,7 +10,13 @@ function getPunkData(userInput, callback, displayBeerError) {
       dataType: 'JSON',
       type: 'GET',
       success: callback,
-      error: displayBeerError
+      error: function(jqXHR, textStatus, errorThrown){
+        if (jqXHR.status == 400){
+          $('.js-search-results').html(`<div class="js-beer-error" aria-live="assertive">It Looks Like You Didn't Search For Anything!</div>`);
+          }
+        console.log(jqXHR, textStatus, errorThrown);
+      }
+      
     };
     $.ajax(settings);
   }
@@ -29,8 +35,8 @@ function getPunkData(userInput, callback, displayBeerError) {
       dataType: 'JSON',
       type: 'GET',
       success: callback,
-      error: function(){
-        $('.js-beer-error').prop('hidden', false);
+      error: function(jqXHR, textStatus, errorThrown){
+        console.log(jqXHR, textStatus, errorThrown);
       }
       
     };
@@ -38,7 +44,7 @@ function getPunkData(userInput, callback, displayBeerError) {
   }
 
 function displayPunkResults(item) {
-    const searchTerm = $('input').val(); 
+    const searchTerm = $('input').val().trim(); 
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
      <h4 class="js-accordion">${item.name}</h4>
@@ -51,8 +57,13 @@ function displayPunkResults(item) {
  
 
 function displayPunkData(data) {
+  const searchTerm = $('input').val().trim();
   const result = data.map((beer, i) => displayPunkResults(beer));
+  if (data.length === 0){
+    $('.js-search-results').html(`<div class="js-beer-error" aria-live="assertive">Sorry! We couldn't find any beers that pair with "${searchTerm}"</div>`);
+  } else {
   $('.js-search-results').html(result);
+  }
 }
 
 function onButtonClick(){
@@ -66,7 +77,7 @@ function onButtonClick(){
 function userSubmit() {
   $('.js-search-form').on('submit', event => {
     event.preventDefault();
-    const userInput = $('.js-query').val(); 
+    const userInput = $('.js-query').val().trim(); 
     $(this).val("");
     getPunkData(userInput, displayPunkData);
   });

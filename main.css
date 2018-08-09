@@ -4,7 +4,7 @@
 
 body {
   background-repeat: no-repeat;
-  background: url(images/background-image_edited.jpg);
+  background: url(images/background-image.jpeg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -15,7 +15,7 @@ header {
   font-family: 'Montserrat Subrayada', sans-serif;
   font-size: 40px;
   text-align: center;
-  color: white;
+  color: rgb(53, 128, 24);
   margin: 0 ;
 }
 
@@ -28,8 +28,8 @@ main {
 
 
 
-fieldset {
-  color: white;
+fieldset, .js-beer-error {
+  color: rgb(236, 184, 104);
   border: none;
 }
 
