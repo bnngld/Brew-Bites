@@ -1,6 +1,6 @@
 const punkURL = "https://api.punkapi.com/v2/beers";
 
-function getPunkData(userInput, callback) {
+function getPunkData(userInput, callback, displayBeerError) {
     const settings = {
       url: punkURL,
       data: {
@@ -9,7 +9,8 @@ function getPunkData(userInput, callback) {
       },
       dataType: 'JSON',
       type: 'GET',
-      success: callback
+      success: callback,
+      error: displayBeerError
     };
     $.ajax(settings);
   }
@@ -27,18 +28,23 @@ function getPunkData(userInput, callback) {
       },
       dataType: 'JSON',
       type: 'GET',
-      success: callback
+      success: callback,
+      error: function(){
+        $('.js-beer-error').prop('hidden', false);
+      }
+      
     };
     $.ajax(settings);
   }
 
-  function displayPunkResults(item) {
+function displayPunkResults(item) {
     const searchTerm = $('input').val(); 
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
-     <button class="js-accordion">${item.name}</button>
+     <h4 class="js-accordion">${item.name}</h4>
       <article class="js-panel" aria-live="assertive" hidden>
-        <h4>Food Pairing</h4>
+        <p>${item.description}</p>
+        <p>Food Pairing:</p>
         ${matches.map(match => `<button class="js-button">${match}</button>`).join("")}
       </article>
    `;}
@@ -50,8 +56,8 @@ function displayPunkData(data) {
 }
 
 function onButtonClick(){
-    $('.js-search-results').on('click', '.js-button', event => {
-        const buttonVal = $('.js-button').html();
+    $('.js-search-results').on('click', '.js-button', function() {
+        const buttonVal = $(this).html();
         getFoodData(buttonVal);
     });
 }
@@ -68,8 +74,8 @@ function userSubmit() {
 
 function panelButton(){
   $('.js-search-results').on('click', '.js-accordion', function(){
-    $(this).next().slideToggle('fast');
-    $('.js-panel').not($(this).next()).slideUp('fast');
+    $(this).next().toggle();
+    $('.js-panel').not($(this).next()).hide();
   });
 }
 

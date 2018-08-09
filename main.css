@@ -2,25 +2,68 @@
     box-sizing: border-box;
   }
 
+body {
+  background-repeat: no-repeat;
+  background: url(images/background-image_edited.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+header {
+  font-family: 'Montserrat Subrayada', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  color: white;
+  margin: 0 ;
+}
+
+main {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  padding: 10px;
+  top: 5em;
+}
+
+
+
+fieldset {
+  color: white;
+  border: none;
+}
+
+.js-button {
+  background-color: #fff;
+  cursor: pointer;
+  border: 1px solid black;
+  font-size: 20px;
+  border-radius: 5px;
+  padding-bottom: 5px;
+}
+
 .js-accordion {
   background-color: #fff;
+  opacity: .90;
   cursor: pointer;
   padding: 8px;
   width: 100%;
-  border: none;
+  border: 1px solid black;
   text-align: left;
-  outline: none;
-  font-size: 18px;
-  transition: 0.4s;
+  font-size: 25px;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
-.js-accordion:hover {
-  background-color: #ccc;
+.js-accordion:hover, .js-button:hover {
+  background-color: rgb(236, 184, 104);
 }
 
 .js-panel {
-  background-color: white;
-  padding-left: 15px;
+  background-color: rgb(255, 255, 255);
   overflow: hidden;
-  transition: 0.6s ease-in-out;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 8px;
+  opacity: .82;
 }

@@ -6,19 +6,24 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada|Oswald" rel="stylesheet">
         <link rel="stylesheet" href="main.css"/>
     </head>
     <body>
+        <header role="header">
+            <h1>Brew Bites</h1>
+        </header>
         <main role="main">
-                <h1>Meal Search</h1>
-                <form action="#" class="js-search-form">
-                <label for="query"></label>
-                <input type="text" class="js-query">
-                <button type="submit">Search</button>
-                </form>
-                
-                <section class="js-search-results" data-role="collapsible-set"></section>
-            </main>
+            <form action="#" class="js-search-form">
+                <fieldset>
+                    <legend>Enter An Ingredient or Meal Name</legend>
+                        <label for="query"></label>
+                        <input type="text" class="js-query">
+                        <button type="submit">Search</button>
+                </fieldset>
+            </form>
+            <section class="js-search-results" data-role="collapsible-set"></section>>
+        </main>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
