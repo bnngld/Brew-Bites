@@ -49,7 +49,7 @@ function displayPunkResults(item) {
      return `
      <section class="js-accordion">
       <h4>${item.name}</h4>
-      <p>${item.tagline}</p>
+      <p>${item.tagline} <span> ABV ${item.abv} / IBU ${item.ibu}<span></p>
      </section>
       <article class="js-panel" aria-live="assertive" hidden>
         <p>${item.description}</p>
@@ -69,40 +69,8 @@ function displayPunkData(data) {
   }
 }
 
-function displayFoodData(data) {
-  const food = $(this).val();
-  const result = food.map((recipe, i) => displayFoodResults(recipe));
-  if (data.length === 0){
-    $('.js-lightbox').html(`<div class="js-recipe-error" aria-live="assertive">You are seeing this because no recipes could be found</div>`);
-  } else {
-  $('.js-lightbox').html(result);
-  }
-}
-
-function displayFoodResults(item) {
-//this function will display food items
-
-}
-
-function foodButton(){
-    $('.js-search-results').on('click', '.js-button', function() {
-      $('.js-lightbox').fadeIn().show();
-      $('.js-lightbox-content').show();
-        const buttonVal = $(this).html();
-        getFoodData(buttonVal, displayFoodData);
-    });
-}
-
-function closeLightbox(){
-  $('.js-lightbox-close').on('click', function() {
-    $('.js-lightbox').prop('hidden', true);
-    $('.js-lightbox-content').hide();
-  });
-}
-
-
 function userSearch() {
-  $('.js-search-form').on('submit', event => {
+  $('.js-search-form').keyup(event => {
     event.preventDefault();
     const userInput = $('.js-query').val().trim(); 
     $(this).val("");
@@ -119,7 +87,6 @@ function accordionButton(){
 
 function renderPage(){
   userSearch();
-  foodButton();
   accordionButton();
 }
 
