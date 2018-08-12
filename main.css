@@ -45,15 +45,6 @@ legend {
   margin: 0 auto;
 }
 
-.js-button {
-  background-color: #fff;
-  cursor: pointer;
-  border: 1px solid black;
-  font-size: 18px;
-  border-radius: 5px;
-  padding: 5px;
-}
-
 .js-accordion {
   background-color: #F0F3BD;
   opacity: .90;
@@ -68,11 +59,11 @@ legend {
 
 
 .js-accordion:hover, .js-button:hover {
-  background-color: #028090;
+  background-color: #F6986D;
 }
 
 .js-panel {
-  background-color: #02C39A;
+  background-color: #F7796C;
   text-align: center;
   overflow: hidden;
   font-size: 20px;
