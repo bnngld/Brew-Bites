@@ -1,0 +1,20 @@
+@media only screen and (max-width: 640px) {
+   
+    body {
+        background-repeat: no-repeat;
+        background: url(images/mobile-background-image.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    header {
+        font-size: 30px;
+    }
+    .js-accordion {
+    font-size: 16px;
+    }
+    .js-panel{
+        height: 200px;
+    }
+}
