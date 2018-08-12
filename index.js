@@ -34,8 +34,7 @@ function getPunkData(userInput, callback) {
       data: {
         q: buttonVal,
         app_id: 'c03f1683',
-        app_key: '7bdba1c44d81525c792ad78924b3a87a',
-        from: 0
+        app_key: '7bdba1c44d81525c792ad78924b3a87a'
       },
       dataType: 'JSON',
       type: 'GET',
@@ -62,8 +61,8 @@ function displayPunkResults(item) {
       <article class="js-panel" aria-live="assertive" hidden>
         <p>${item.description}</p>
         <p>Food Pairing:</p>
+        <div class="js-food-pairing">${matches[0]}</div>
           <div class="js-food-pairing-container">
-            <h5 class="js-food-pairing">${matches[0]}</h5>
           </div>
       </article>
    `;}
@@ -104,25 +103,36 @@ function accordionButton(){
 //takes food pairing text from currently open accordion and passes that value into the getFoodData ajax call
 function queryForFood(){
   $('.js-search-results').on('click', '.js-accordion', function(){
-    const buttonVal = $(this).next().next().next().find('.js-food-pairing').text();
-   getFoodData(buttonVal, displayFoodResults);
+    const buttonVal = $(this).next().find('.js-food-pairing').text();
+    console.log(buttonVal);
+   getFoodData(buttonVal, displayFoodData);
   });
 }
 
 //maps over food data and if there is data it appends food info to the currently expanded accordion. Otherwise it throws an error.
 function displayFoodData(data){
-  const result = data.map((food, i) => displayFoodResults(food));
+  const results = displayFoodResults(data);
   if (data.length === 0){
-    $('.js-search-results').html(`<div class="js-food-error" aria-live="assertive">You are seeing this for one of two reasons. First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`);
+    $('.js-food-pairing-container').html(`<div class="js-food-error" aria-live="assertive">You are seeing this for one of two reasons. First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`);
   } else {
-  $('h6').html(result);
+  $('.js-food-pairing-container').html(results);
   }
 }
 
 
-function displayFoodResults(item){
-
-}
+function displayFoodResults(items){
+  const buttonVal = $(this).next().find('.js-food-pairing').text();
+  const recipeName = items.hits[0].recipe.label.match(`${buttonVal}`);
+  console.log(items.hits)
+  return `
+    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/></a>
+    <p>Time to Make: ${items.hits[0].recipe.totalTime} min.</p>
+    <p class="js-ingredient-list">Ingredients Needed:</p>
+    <ul>
+      ${items.hits[0].recipe.ingredientLines.map( ingredient => `<li>${ingredient}</li>`).join("")}
+    </ul>
+  `
+  ;}
 
 //loads all functions that are needed to use the webapp.
 function renderPage(){

@@ -65,13 +65,30 @@ legend {
 .js-panel {
   background-color: #F7796C;
   text-align: center;
-  overflow: hidden;
+  overflow-y: scroll;
+  height: 500px;
   font-size: 20px;
   border-radius: 5px;
   padding: 8px;
   width: 79%;
   opacity: .82;
   margin: 0 auto;
+}
+
+a input {
+  border-radius: 50%;
+}
+
+.js-ingredient-list {
+  margin: 10px;
+  text-align: left;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+li {
+  margin: 10px;
+  text-align: left;
 }
 
 .js-beer-error {
