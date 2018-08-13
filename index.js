@@ -34,7 +34,9 @@ function getPunkData(userInput, callback) {
       data: {
         q: buttonVal,
         app_id: 'c03f1683',
-        app_key: '7bdba1c44d81525c792ad78924b3a87a'
+        app_key: '7bdba1c44d81525c792ad78924b3a87a',
+        from: 0,
+        to: 1
       },
       dataType: 'JSON',
       type: 'GET',
@@ -112,18 +114,15 @@ function queryForFood(){
 //maps over food data and if there is data it appends food info to the currently expanded accordion. Otherwise it throws an error.
 function displayFoodData(data){
   const results = displayFoodResults(data);
-  if (data.length === 0){
-    $('.js-food-pairing-container').html(`<div class="js-food-error" aria-live="assertive">You are seeing this for one of two reasons. First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`);
-  } else {
   $('.js-food-pairing-container').html(results);
   }
-}
 
-
+//returns html for the page based on the hits array being empty or not
 function displayFoodResults(items){
-  const buttonVal = $(this).next().find('.js-food-pairing').text();
-  const recipeName = items.hits[0].recipe.label.match(`${buttonVal}`);
-  console.log(items.hits)
+  if (items.hits.length === 0) {
+    return `<div class="js-food-error" aria-live="assertive">You are seeing this for one of two reasons. 
+    First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`
+  } else {
   return `
     <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/></a>
     <p>Time to Make: ${items.hits[0].recipe.totalTime} min.</p>
@@ -133,6 +132,7 @@ function displayFoodResults(items){
     </ul>
   `
   ;}
+}
 
 //loads all functions that are needed to use the webapp.
 function renderPage(){
