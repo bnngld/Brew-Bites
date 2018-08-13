@@ -13,8 +13,11 @@
     }
     .js-accordion {
     font-size: 16px;
+    width: 95%;
     }
-    .js-panel{
-        height: 200px;
+    .js-panel {
+        width: 95%;
+        height: 100%;
+        overflow: none;
     }
 }
