@@ -1,101 +1,123 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
 body {
-  background-repeat: no-repeat;
-  background: url(images/background-image.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+background: url(images/background-image.jpg);
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+border: solid red 1px;
+
 }
 
 header {
-  font-family: 'Montserrat Subrayada', sans-serif;
-  font-size: 35px;
-  text-align: center;
-  color: #F0F3BD;
-  margin: 0 auto;
+font-family: 'Montserrat Subrayada', sans-serif;
+font-size: 35px;
+color: #F0F3BD;
+text-align: center;
 }
-input {
-  text-align: center;
-  border-radius: 15px;
-  margin: 15px;
+
+.js-search-form input {
+text-align: center;
+border-radius: 15px;
+margin: 15px;
+font-size: 20px;
 }
+
+.col-12 {
+border: solid orange 1px;
+}
+
+.row {
+border: solid blue 1px;
+}
+
 main {
-  font-family: 'Oswald', sans-serif;
-  text-align: center;
-  padding: 10px;
+border: solid white 1px;
+font-family: 'Oswald', sans-serif;
+text-align: center;
+
 }
 
-span {
-  font-style: italic;
-  font-size: 18px;
-}
-
-fieldset {
-  border: none;
+form {
+border: solid green 1px;
 }
 
 legend {
-  color: #F0F3BD;
-  font-size: 20px;
-  border: none;
-  margin: 0 auto;
+color: #F0F3BD;
+font-size: 20px;
+border: none;
+}
+
+span {
+font-style: italic;
+font-size: 18px;
+}
+
+fieldset {
+border: none;
 }
 
 .js-accordion {
-  background-color: #F0F3BD;
-  opacity: .90;
-  cursor: pointer;
-  width: 80%;
-  border: 1px solid black;
-  text-align: center;
-  font-size: 20px;
-  margin: 0 auto;
-  border-radius: 5px;
+background-color: #F0F3BD;
+opacity: .90;
+cursor: pointer;
+border: 1px solid black;
+text-align: center;
+font-size: 20px;
+margin: 0 auto;
+border-radius: 5px;
 }
 
 
 .js-accordion:hover, .js-button:hover {
-  background-color: #F6986D;
+background-color: #F6986D;
 }
 
 .js-panel {
-  background-color: #F7796C;
-  text-align: center;
-  overflow-y: scroll;
-  height: 575px;
-  font-size: 20px;
-  border-radius: 5px;
-  padding: 8px;
-  width: 79%;
-  opacity: .82;
-  margin: 0 auto;
+background-color: #F7796C;
+text-align: left;
+overflow: none;
+font-size: 20px;
+border-radius: 5px;
+padding: 8px;
+opacity: .85;
+margin: 0 auto;
+}
+
+a {
+text-decoration: none;
+color: black;
 }
 
 a input {
-  border-radius: 50%;
-  margin: 0 auto;
+display: block;
+border-radius: 10px;
 }
 
 .js-ingredient-list {
-  margin: 10px;
-  text-align: left;
-  text-decoration: underline;
-  font-weight: bold;
+margin: 10px;
+text-align: center;
 }
 
 li {
-  margin: 10px;
-  text-align: left;
+margin: 10px;
+text-align: left;
 }
 
 .js-beer-error {
-  color: #E63946;
-  font-size: 20px;
-  border: none;
-  margin: 0 auto;
+color: #E63946;
+font-size: 20px;
+border: none;
+margin: 0 auto;
+}
+
+
+.js-food-pairing-container {
+display: flex;
+justify-content: space-evenly;
+align-items: center;
 }
 

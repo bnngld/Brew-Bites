@@ -106,7 +106,6 @@ function accordionButton(){
 function queryForFood(){
   $('.js-search-results').on('click', '.js-accordion', function(){
     const buttonVal = $(this).next().find('.js-food-pairing').text();
-    console.log(buttonVal);
    getFoodData(buttonVal, displayFoodData);
   });
 }
