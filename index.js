@@ -23,6 +23,7 @@ function getPunkData(userInput, callback) {
     };
     $.ajax(settings);
   }
+  
 //url for Edamam Recipe Search API (food)
  const foodURL = "https://api.edamam.com/search";
 
