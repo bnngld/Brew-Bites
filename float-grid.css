@@ -32,6 +32,44 @@
       width: 100%;
     }
 
+@media only screen and (max-width: 885px) {
+    .col-3 {
+        width: 25%;
+    }
+    
+      .col-4 {
+        width: 33%;
+    }
+    
+      .col-6 {
+        width: 50%;
+    
+    }
+    
+      .col-12 {
+        width: 100%;
+    }
+    .js-food-pairing-container:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+        text-align: center;
+    }
+    a {
+        float: none;
+        text-decoration: none;
+        color: black;
+    }
+  
+    ul {
+        width: 100%;
+        }
+}
+
+
 @media only screen and (max-width: 640px) {
     .col-3 {
         width: 25%;
@@ -53,15 +91,20 @@
     body {
         background-repeat: no-repeat;
         background: url(images/mobile-background-image.jpg);
-        background-position: center center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: stretch;
         background-size: cover;
       }
     header {
         font-size: 25px;
     }
-    a input {
-        width: 100%;
+    .js-food-pairing::after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+        text-align: center;
     }
 }

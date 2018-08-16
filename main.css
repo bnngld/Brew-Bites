@@ -66,43 +66,56 @@ fieldset {
 
 
 .js-accordion:hover, .js-button:hover {
-  background-color: #F6986D;
+  background-color: #bdcebe;
 }
 
 .js-panel {
-  background-color: #F7796C;
+  background-color: #728EA5;
   text-align: left;
   overflow: none;
   font-size: 20px;
   border-radius: 5px;
   padding: 8px;
-  opacity: .85;
+  opacity: .90;
   margin: 0 auto;
 }
 
+.js-food-pairing {
+  text-align: center;
+}
+
+.js-food-pairing-container {
+  display: inline-block;
+}
+
 a {
+  clear: left;
+  float: right;
   text-decoration: none;
   color: black;
 }
 
 a input {
-  display: block;
   border-radius: 10px;
 }
 
-.js-ingredient-list {
-  margin: 10px;
-  text-align: center;
+ul {
+  float: left;
+  text-align: left;
 }
 
 li {
+  width: 450px;
+  list-style: none;
   margin: 10px;
   text-align: left;
 }
 
-.js-beer-error {
+.js-beer-error, .js-food-error {
   color: #E63946;
   font-size: 20px;
   border: none;
   margin: 0 auto;
 }
+
+

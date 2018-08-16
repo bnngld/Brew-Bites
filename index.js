@@ -124,10 +124,9 @@ function displayFoodResults(items){
     First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`
   } else {
   return `
-    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/></a>
     <p>Time to Make: ${items.hits[0].recipe.totalTime} min.</p>
-    <p class="js-ingredient-list">Ingredients Needed:</p>
-    <ul>
+    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/></a>
+    <ul> Ingredients Needed:
       ${items.hits[0].recipe.ingredientLines.map( ingredient => `<li>${ingredient}</li>`).join("")}
     </ul>
   `
