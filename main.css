@@ -19,12 +19,18 @@ header {
   text-align: center;
 }
 
+.app-guide {
+  color: grey;
+  margin: none;
+  
+}
+
 .js-search-form input {
   width: 50%;
   text-align: center;
   border-radius: 15px;
   margin-top: 15px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 
@@ -116,6 +122,28 @@ li {
   border: none;
   margin: 0 auto;
   text-align: center;
+}
+
+.about-section p {
+  font-family: 'Oswald', sans-serif;
+  position: absolute; 
+  left: -390px; 
+  transition: 0.3s; 
+  padding: 15px; 
+  width: 400px;
+  text-decoration: none; 
+  font-size: 18px; 
+  color: black; 
+  border-radius: 5px; 
+}
+
+.about-section p:hover {
+  left: 0; 
+}
+
+.about-content {
+  top: 20px;
+  background-color: #F0F3BD;
 }
 
 

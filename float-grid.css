@@ -49,11 +49,24 @@
       .col-12 {
         width: 100%;
     }
+    header {
+      font-size: 25px;
+    }
+    body {
+      background-repeat: no-repeat;
+      background: url(images/mobile-background-image.jpg);
+      background-attachment: fixed;
+      background-size: cover;
+    }
     .js-food-pairing-container {
         text-align: center;
         display: flex;
         flex-direction: column;
         height: 100%;
+    }
+    li {
+      list-style: circle;
+      text-align: left;
     }
 }
 
