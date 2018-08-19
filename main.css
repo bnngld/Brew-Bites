@@ -89,10 +89,12 @@ fieldset {
 .js-food-pairing-container {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
   overflow: none;
 }
 
 a {
+  text-align: center;
   align-self: center;
   text-decoration: none;
   color: black;
@@ -103,19 +105,17 @@ a input {
   border-radius: 10px;
 }
 
-
 li {
-  margin: 0 auto;
-
   list-style: none;
   margin: 10px;
 }
 
 .js-beer-error, .js-food-error {
-  color: #E63946;
+  color: rgb(173, 33, 45);
   font-size: 20px;
   border: none;
   margin: 0 auto;
+  text-align: center;
 }
 
 
