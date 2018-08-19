@@ -1,3 +1,3 @@
-# api-captstone
+# Brew Bites
 
-[Demo](https://bnngld.github.io/api-captstone/)
+[Live Version](https://bnngld.github.io/api-captstone/)
