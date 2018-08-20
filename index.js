@@ -8,7 +8,7 @@ function getPunkData(userInput, callback) {
       url: punkURL,
       data: {
         food: userInput,
-        per_page: 6
+        per_page: 5
       },
       dataType: 'JSON',
       type: 'GET',
@@ -60,7 +60,7 @@ function displayPunkResults(item) {
       <section class="js-accordion">
         <input type="image" src="${item.image_url}"/>
         <h4>${item.name}</h4>
-        <p>${item.tagline} <span> ABV ${item.abv} / IBU ${item.ibu}<span></p>
+        <p>${item.tagline} <span> ABV ${item.abv} / IBU ${item.ibu}<span></p> 
       </section>
       <article class="js-panel" aria-live="assertive" hidden>
         <p>${item.description}</p>
@@ -99,7 +99,7 @@ function userSearch() {
 //expands accordion for selected beer. toggles closed any others that are not currently selected.
 function accordionButton(){
   $('.js-search-results').on('click', '.js-accordion', function(){
-    $(this).next().toggle(500);
+    $(this).next().toggle('slide');
     $('.js-panel').not($(this).next()).hide('slow');
   });
 }
@@ -125,8 +125,7 @@ function displayFoodResults(items){
     First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`
   } else {
   return `
-    <p>Time to Make: ${items.hits[0].recipe.totalTime} min.</p>
-    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/></a>
+    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/>Time to Make: ${items.hits[0].recipe.totalTime} min.</a>
     <ul> Ingredients Needed:
       ${items.hits[0].recipe.ingredientLines.map( ingredient => `<li>${ingredient}</li>`).join("")}
     </ul>
