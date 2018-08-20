@@ -32,7 +32,7 @@
       width: 100%;
     }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 640px) {
     .col-3 {
         width: 25%;
     }
@@ -58,15 +58,34 @@
       background-attachment: fixed;
       background-size: cover;
     }
+    .js-accordion {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .js-accordion input {
+      transform: none;
+      margin: 0 auto;
+      padding-top: 10px;
+      outline: none;
+    }
+    .js-food-pairing {
+      text-align: center;
+      padding-left: 0px;
+    }
     .js-food-pairing-container {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     li {
       list-style: circle;
       text-align: left;
+    }
+    .about-section p {
+      z-index: 1;
+      width: 250px;
+      left: -240px;
     }
 }
 

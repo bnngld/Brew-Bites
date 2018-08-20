@@ -57,9 +57,10 @@ function displayPunkResults(item) {
     //new array (matches) is created by filtering the item.food_pairing arrays (one for each of the 5 items being returned) for any element in the array that includes the user input.
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
-     <section class="js-accordion">
+      <section class="js-accordion">
+        <input type="image" src="${item.image_url}"/>
         <h4>${item.name}</h4>
-        <p>${item.tagline} <span> ABV ${item.abv} / IBU ${item.ibu}<span></p>
+        <p>${item.tagline} <span> ABV ${item.abv} / IBU ${item.ibu}<span></p> 
       </section>
       <article class="js-panel" aria-live="assertive" hidden>
         <p>${item.description}</p>
@@ -98,7 +99,7 @@ function userSearch() {
 //expands accordion for selected beer. toggles closed any others that are not currently selected.
 function accordionButton(){
   $('.js-search-results').on('click', '.js-accordion', function(){
-    $(this).next().toggle('slow');
+    $(this).next().toggle('slide');
     $('.js-panel').not($(this).next()).hide('slow');
   });
 }
@@ -121,11 +122,10 @@ function displayFoodData(data){
 function displayFoodResults(items){
   if (items.hits.length === 0) {
     return `<div class="js-food-error" aria-live="assertive">You are seeing this for one of two reasons. 
-    First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`
+    First, no recipe could be found. Second, the meal only needs the ingredients in the title.</div>`
   } else {
   return `
-    <p>Time to Make: ${items.hits[0].recipe.totalTime} min.</p>
-    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/></a>
+    <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/>Time to Make: ${items.hits[0].recipe.totalTime} min.</a>
     <ul> Ingredients Needed:
       ${items.hits[0].recipe.ingredientLines.map( ingredient => `<li>${ingredient}</li>`).join("")}
     </ul>
