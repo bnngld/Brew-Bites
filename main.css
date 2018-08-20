@@ -50,15 +50,10 @@ fieldset {
 
 
 .js-search-results {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
   padding-bottom: 15px;
 }
 
 .js-accordion {
-  flex: 1 1 30%;
   width: 100%;
   background-color: #F0F3BD;
   opacity: .90;

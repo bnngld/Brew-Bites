@@ -66,8 +66,8 @@ function displayPunkResults(item) {
         <p>${item.description}</p>
         <p>Food Pairing:</p>
         <div class="js-food-pairing">${matches[0]}</div>
-          <div class="js-food-pairing-container">
-          </div>
+        <section class="js-food-pairing-container">
+        </section>
       </article>
    `;}
 
@@ -106,7 +106,7 @@ function accordionButton(){
 
 //takes food pairing text from currently open accordion and passes that value into the getFoodData ajax call
 function queryForFood(){
-  $('.js-search-results').on('click', '.js-accordion', function(){
+  $('.js-search-results').on('touchstart click', '.js-accordion', function(){
     const buttonVal = $(this).next().find('.js-food-pairing').text();
    getFoodData(buttonVal, displayFoodData);
   });
