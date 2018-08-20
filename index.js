@@ -8,7 +8,7 @@ function getPunkData(userInput, callback) {
       url: punkURL,
       data: {
         food: userInput,
-        per_page: 5
+        per_page: 6
       },
       dataType: 'JSON',
       type: 'GET',
@@ -57,7 +57,8 @@ function displayPunkResults(item) {
     //new array (matches) is created by filtering the item.food_pairing arrays (one for each of the 5 items being returned) for any element in the array that includes the user input.
     const matches = item.food_pairing.filter(x => x.toLowerCase().includes(`${searchTerm}`));
      return `
-     <section class="js-accordion">
+      <section class="js-accordion">
+        <input type="image" src="${item.image_url}"/>
         <h4>${item.name}</h4>
         <p>${item.tagline} <span> ABV ${item.abv} / IBU ${item.ibu}<span></p>
       </section>
@@ -98,7 +99,7 @@ function userSearch() {
 //expands accordion for selected beer. toggles closed any others that are not currently selected.
 function accordionButton(){
   $('.js-search-results').on('click', '.js-accordion', function(){
-    $(this).next().toggle('slow');
+    $(this).next().toggle(500);
     $('.js-panel').not($(this).next()).hide('slow');
   });
 }
