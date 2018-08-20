@@ -122,7 +122,7 @@ function displayFoodData(data){
 function displayFoodResults(items){
   if (items.hits.length === 0) {
     return `<div class="js-food-error" aria-live="assertive">You are seeing this for one of two reasons. 
-    First, no food data could be found. Second, the meal only needs the ingredients in the title.</div>`
+    First, no recipe could be found. Second, the meal only needs the ingredients in the title.</div>`
   } else {
   return `
     <a href="${items.hits[0].recipe.url}"><input type="image" src="${items.hits[0].recipe.image}"/>Time to Make: ${items.hits[0].recipe.totalTime} min.</a>
