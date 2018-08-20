@@ -106,7 +106,7 @@ function accordionButton(){
 
 //takes food pairing text from currently open accordion and passes that value into the getFoodData ajax call
 function queryForFood(){
-  $('.js-search-results').on('touchstart click', '.js-accordion', function(){
+  $('.js-search-results').on('click', '.js-accordion', function(){
     const buttonVal = $(this).next().find('.js-food-pairing').text();
    getFoodData(buttonVal, displayFoodData);
   });
