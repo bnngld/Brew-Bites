@@ -54,6 +54,7 @@ fieldset {
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
+  padding-bottom: 15px;
 }
 
 .js-accordion {
@@ -98,15 +99,16 @@ h4 {
 }
 
 .js-food-pairing {
-  text-align: center;
-  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 150px;
+  margin-bottom: 25px;
   text-decoration: underline;
 }
 
 .js-food-pairing-container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   overflow: none;
 }
 
@@ -115,9 +117,11 @@ a {
   align-self: center;
   text-decoration: none;
   color: black;
+  
 }
 
 a input {
+  margin-bottom: 25px;
   width: 100%;
   border-radius: 10px;
 }

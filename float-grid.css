@@ -62,12 +62,15 @@
       width: 100%;
       margin-bottom: 5px;
     }
-
     .js-accordion input {
       transform: none;
       margin: 0 auto;
       padding-top: 10px;
       outline: none;
+    }
+    .js-food-pairing {
+      text-align: center;
+      padding-left: 0px;
     }
     .js-food-pairing-container {
       text-align: center;
