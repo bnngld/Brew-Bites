@@ -66,8 +66,8 @@ function displayBeerResults(item) {
         <p>${item.description}</p>
         <p>Food Pairing:</p>
         <h4 class="js-food-pairing">${matches[0]}</h4>
-          <section class="js-food-pairing-container">
-          </section>
+        <section class="js-food-pairing-container">
+        </section>
       </article>
    `;}
 
