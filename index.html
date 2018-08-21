@@ -17,6 +17,7 @@
                     <h1>Brew Bites</h1>
                     <aside class="about-section">
                         <p class="about-content">
+                            <span class="about-identifier">Help?</span>
                             Search for a dish or an ingredient and beers that have a matching dish will be displayed.
                             Each beer is displayed with: Name, Tagline (think catchy one liner description), ABV (alcohol content in %) 
                             and IBU's (bitterness scale; lower is less bitter - light beers are around 45-50).
@@ -30,18 +31,18 @@
         <main role="main">
             <div class="row">
                 <div class="col-12">
-                    <form action="#" class="js-search-form">
+                    <form role="search" class="js-search-form" action="#" >
                         <fieldset>
                             <legend>Enter An Ingredient or Meal Name</legend>
                             <label for="query"></label>
-                            <input type="text" class="js-query" placeholder="ie: chicken"> 
+                            <input type="text" class="js-query" placeholder="ie: chicken" aria-label="Search for a beer that matches the food item you enter"> 
                         </fieldset>
                     </form>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <section class="js-search-results" data-role="collapsible-set"></section>
+                    <section role="region" class="js-search-results" data-role="collapsible-set" aria-live="assertive"></section>
                 </div>
             </div>
         </main>

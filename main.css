@@ -27,7 +27,6 @@ header {
   font-size: 18px;
 }
 
-
 main {
   font-family: 'Oswald', sans-serif;
   text-align: center;
@@ -47,7 +46,6 @@ span {
 fieldset {
   border: none;
 }
-
 
 .js-search-results {
   padding-bottom: 15px;
@@ -95,9 +93,7 @@ h4 {
 
 .js-food-pairing {
   text-align: left;
-  padding-left: 150px;
   margin-bottom: 25px;
-  text-decoration: underline;
 }
 
 .js-food-pairing-container {
@@ -127,11 +123,27 @@ li {
 }
 
 .js-beer-error, .js-food-error {
-  color: rgb(173, 33, 45);
+  color: #FF0000;
   font-size: 20px;
   border: none;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
+}
+
+.about-identifier {
+  z-index: 1;
+  font-family: 'Oswald', sans-serif;
+  position: absolute; 
+  right: 0px;  
+  width: 25px;
+  padding-top: 15px;
+  padding-left: 2px;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-decoration: none; 
+  font-size: 20px; 
+  color: black; 
+  border-radius: 5px; 
 }
 
 .about-section p {
@@ -139,8 +151,8 @@ li {
   position: absolute; 
   left: -390px; 
   transition: 0.3s; 
-  padding: 15px; 
-  width: 400px;
+  padding: 20px; 
+  width: 410px;
   text-decoration: none; 
   font-size: 18px; 
   color: black; 
@@ -151,7 +163,7 @@ li {
   left: 0; 
 }
 
-.about-content {
+.about-content, .about-content span {
   top: 20px;
   background-color: #F0F3BD;
 }

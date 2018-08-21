@@ -32,7 +32,9 @@
       width: 100%;
     }
 
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 640px) {
+  
     .col-3 {
         width: 25%;
     }
@@ -41,52 +43,74 @@
         width: 33%;
     }
     
-      .col-6 {
-        width: 50%;
+     .col-6 {
+       width: 50%;
+   }
     
-    }
-    
-      .col-12 {
-        width: 100%;
-    }
-    header {
-      font-size: 25px;
-    }
-    body {
-      background-repeat: no-repeat;
-      background: url(images/mobile-background-image.jpg);
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    .js-accordion {
-      width: 100%;
-      margin-bottom: 5px;
-    }
-    .js-accordion input {
-      transform: none;
-      margin: 0 auto;
-      padding-top: 10px;
-      outline: none;
-    }
-    .js-food-pairing {
-      text-align: center;
-      padding-left: 0px;
-    }
-    .js-food-pairing-container {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    li {
-      list-style: circle;
-      text-align: left;
-    }
-    .about-section p {
-      z-index: 1;
-      width: 250px;
-      left: -240px;
-    }
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+  width: 33%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
+  header {
+    font-size: 25px;
+  }
+
+  body {
+    background-repeat: no-repeat;
+    background: url(images/mobile-background-image.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .js-accordion {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .js-accordion input {
+    transform: none;
+    margin: 0 auto;
+    padding-top: 10px;
+    outline: none;
+  }
+
+  .js-food-pairing {
+    text-align: center;
+    padding-left: 0px;
+  }
+
+  .js-food-pairing-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  li {
+    list-style: circle;
+    text-align: left;
+  }
+
+  .about-indentifier {
+    z-index: 1;
+  }
+
+  .about-section p {
+    width: 260px;
+    left: -240px;
+  }
 }
 
 
