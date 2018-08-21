@@ -5,19 +5,19 @@ A food and beer pairing application. Users can search based on a dish name, favo
 ## Screenshots:
 Landing Page:
 
-![landing page](images/brew-bites-landing-page.png)
+![landing page](https://raw.githubusercontent.com/bnngld/Brew-Bites/master/images/brew-bites-landing-page.PNG)
 
 Help Menu:
 
-![help menu](images/brew-bites-help-menu.PNG)
+![help menu](https://raw.githubusercontent.com/bnngld/Brew-Bites/master/images/brew-bites-help-menu.PNG)
 
 Search Results:
 
-![search results](images/brew-bites-search-results.png)
+![search results](https://raw.githubusercontent.com/bnngld/Brew-Bites/master/images/brew-bites-search-results.PNG)
 
 Beer description and food pairing:
 
-![beer description and food pairing](images/brew-bites-beer_food-description.png)
+![beer description and food pairing](https://raw.githubusercontent.com/bnngld/Brew-Bites/master/images/brew-bites-beer_food-description.PNG)
 
 
 ## Demo
