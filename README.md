@@ -1,5 +1,30 @@
 # Brew Bites
 
-An foodie meets beer connoisseur application. For the hungry and parched wanderers that long for some direction with minimal input. 
+A food and beer pairing application. Users can search based on a dish name, favorite kind of food or just a main ingredient and Brew Bites will return five beers that have dishes related to their search term. Each beer in the results can be selected to reveal a full description of the beer and the dish that pairs well. Based on the image, time to make and ingredients list a decision can be made in just a few clicks. To access the selected recipe just click on the image of the desired dish and suddenly the headache of what to eat and drink becomes a thing of the past.
 
-[Live Version](https://bnngld.github.io/Brew-Bites/)
+## Screenshots:
+Landing Page:
+
+![landing page](images/brew-bites-landing-page.png)
+
+Help Menu:
+
+![help menu](images/brew-bites-help-menu.PNG)
+
+Search Results:
+
+![search results](images/brew-bites-search-results.png)
+
+Beer description and food pairing:
+
+![beer description and food pairing](images/brew-bites-beer_food-description.png)
+
+
+## Demo
+[Live Demo](https://bnngld.github.io/Brew-Bites/)
+
+## Built With
++ Javascript
++ JQuery
++ HTML5
++ CSS3

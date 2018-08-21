@@ -130,6 +130,10 @@ li {
   text-align: left;
 }
 
+.js-food-error {
+  color: #c12828;
+}
+
 .about-identifier {
   z-index: 1;
   font-family: 'Oswald', sans-serif;
